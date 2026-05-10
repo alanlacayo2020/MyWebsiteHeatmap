@@ -1,36 +1,447 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Website 2</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "wmwceu77cw");
-    </script>
+  <title>Las Chicas Superpoderosas</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#fff7fb;
+      overflow-x:hidden;
+      color:#222;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero{
+      width:100%;
+      min-height:100vh;
+
+      background:
+      linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+      url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=2070&auto=format&fit=crop');
+
+      background-size:cover;
+      background-position:center;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:40px;
+    }
+
+    .hero-content{
+      animation:fadeUp 1s ease;
+    }
+
+    .hero h1{
+      color:white;
+      font-size:clamp(3rem,9vw,7rem);
+      font-weight:800;
+      letter-spacing:2px;
+      text-shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+
+    .hero p{
+      margin-top:20px;
+      color:#f1f1f1;
+      font-size:1.2rem;
+      font-weight:300;
+    }
+
+    /* =========================
+       CONTENIDO
+    ========================== */
+
+    .container{
+      width:min(1200px,90%);
+      margin:auto;
+      padding:120px 0;
+    }
+
+    .character{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:70px;
+      align-items:center;
+      margin-bottom:140px;
+    }
+
+    .character.reverse .image-box{
+      order:2;
+    }
+
+    .character.reverse .text-box{
+      order:1;
+    }
+
+    /* =========================
+       IMÁGENES
+    ========================== */
+
+    .image-box{
+      border-radius:35px;
+      overflow:hidden;
+      position:relative;
+
+      box-shadow:
+      0 20px 60px rgba(0,0,0,.15);
+
+      transition:.5s ease;
+    }
+
+    .image-box:hover{
+      transform:translateY(-12px) scale(1.02);
+    }
+
+    .image-box img{
+      width:100%;
+      display:block;
+      object-fit:cover;
+      transition:.5s ease;
+    }
+
+    .image-box:hover img{
+      transform:scale(1.05);
+    }
+
+    /* =========================
+       TEXTO
+    ========================== */
+
+    .text-box h2{
+      font-size:3.5rem;
+      margin-bottom:15px;
+      font-weight:800;
+    }
+
+    .text-box p{
+      font-size:1.05rem;
+      line-height:1.9;
+      color:#555;
+      margin-bottom:30px;
+      max-width:550px;
+    }
+
+    /* =========================
+       BOTONES
+    ========================== */
+
+    .buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      text-decoration:none;
+      padding:15px 26px;
+      border-radius:18px;
+      font-weight:600;
+      transition:.3s ease;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:#111;
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px);
+      box-shadow:0 10px 20px rgba(0,0,0,.2);
+    }
+
+    .btn-secondary{
+      background:white;
+      color:#111;
+      border:2px solid #ddd;
+    }
+
+    .btn-secondary:hover{
+      background:#f5f5f5;
+      transform:translateY(-4px);
+    }
+
+    /* =========================
+       COLORES POWERPUFF
+    ========================== */
+
+    .bombom{
+      background:linear-gradient(135deg,#ffb3c7,#ffd9e4);
+    }
+
+    .burbuja{
+      background:linear-gradient(135deg,#b8e3ff,#dff4ff);
+    }
+
+    .bellota{
+      background:linear-gradient(135deg,#baffc9,#ddffe6);
+    }
+
+    .mojo{
+      background:linear-gradient(135deg,#d6c1ff,#efe5ff);
+    }
+
+    .saltadilla{
+      background:linear-gradient(135deg,#ffdca8,#fff0cf);
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer{
+      text-align:center;
+      padding:50px 20px;
+      background:#111;
+      color:white;
+      margin-top:50px;
+    }
+
+    /* =========================
+       ANIMACIONES
+    ========================== */
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media(max-width:900px){
+
+      .character{
+        grid-template-columns:1fr;
+        gap:50px;
+      }
+
+      .character.reverse .image-box,
+      .character.reverse .text-box{
+        order:unset;
+      }
+
+      .text-box{
+        text-align:center;
+      }
+
+      .text-box p{
+        margin:auto auto 30px;
+      }
+
+      .buttons{
+        justify-content:center;
+      }
+
+      .text-box h2{
+        font-size:2.8rem;
+      }
+
+    }
+
+  </style>
 </head>
-<body style="font-family: Arial; text-align: center;">
 
-    <h1>Las Chicas Super Poderosas</h1>
-    <h2>y Mojo Jojo</h2>
+<body>
 
-    <p>ㅤㅤ</p>
-    <p>ㅤㅤ</p>
-    <p>Este sitio tiene más contenido y más opciones.</p>
+  <!-- HERO -->
 
-    <a href="https://google.com">Google</a><br><br>
-    <a href="https://youtube.com">YouTube</a><br><br>
-    <a href="https://wikipedia.org">Wikipedia</a>
+  <section class="hero">
 
-    <div style="margin-top: 1000px;">
-        <h2>Contenido más abajo</h2>
-        <p>Este contenido requiere scroll.</p>
+    <div class="hero-content">
+
+      <h1>Las Chicas Superpoderosas</h1>
+
+      <p>
+        Azúcar, flores y muchos colores ✨
+      </p>
+
     </div>
+
+  </section>
+
+  <!-- CONTENIDO -->
+
+  <main class="container">
+
+    <!-- BOMBOM -->
+
+    <section class="character">
+
+      <div class="text-box">
+
+        <h2>Bombom</h2>
+
+        <p>
+          La líder inteligente y organizada del equipo.
+          Siempre está preparada para salvar Saltadilla
+          y proteger a sus hermanas.
+        </p>
+
+        <div class="buttons">
+          <a href="#" class="btn btn-primary">Ver imágenes</a>
+          <a href="#" class="btn btn-secondary">Saber más</a>
+        </div>
+
+      </div>
+
+      <div class="image-box bombom">
+        <img src="images/Bombom.png">
+      </div>
+
+    </section>
+
+    <!-- BURBUJA -->
+
+    <section class="character reverse">
+
+      <div class="text-box">
+
+        <h2>Burbuja</h2>
+
+        <p>
+          Dulce, alegre y adorable.
+          Aunque parece inocente, tiene una fuerza
+          increíble cuando la situación lo requiere.
+        </p>
+
+        <div class="buttons">
+          <a href="#" class="btn btn-primary">Ver imágenes</a>
+          <a href="#" class="btn btn-secondary">Saber más</a>
+        </div>
+
+      </div>
+
+      <div class="image-box burbuja">
+        <img src="images/Burbuja.png">
+      </div>
+
+    </section>
+
+    <!-- BELLOTA -->
+
+    <section class="character">
+
+      <div class="text-box">
+
+        <h2>Bellota</h2>
+
+        <p>
+          La más fuerte y valiente del grupo.
+          Bellota nunca retrocede ante una pelea
+          y siempre protege a sus hermanas.
+        </p>
+
+        <div class="buttons">
+          <a href="#" class="btn btn-primary">Ver imágenes</a>
+          <a href="#" class="btn btn-secondary">Saber más</a>
+        </div>
+
+      </div>
+
+      <div class="image-box bellota">
+        <img src="images/Bellota.png">
+      </div>
+
+    </section>
+
+    <!-- MOJO JOJO -->
+
+    <section class="character reverse">
+
+      <div class="text-box">
+
+        <h2>Mojo Jojo</h2>
+
+        <p>
+          El villano más icónico de Saltadilla.
+          Un genio malvado con planes locos
+          para conquistar la ciudad.
+        </p>
+
+        <div class="buttons">
+          <a href="#" class="btn btn-primary">Ver imágenes</a>
+          <a href="#" class="btn btn-secondary">Saber más</a>
+        </div>
+
+      </div>
+
+      <div class="image-box mojo">
+        <img src="images/MojoJojo.png">
+      </div>
+
+    </section>
+
+    <!-- SALTADILLA -->
+
+    <section class="character">
+
+      <div class="text-box">
+
+        <h2>Saltadilla</h2>
+
+        <p>
+          La ciudad donde las Chicas Superpoderosas
+          viven increíbles aventuras y luchan contra
+          villanos todos los días.
+        </p>
+
+        <div class="buttons">
+          <a href="#" class="btn btn-primary">Explorar</a>
+          <a href="#" class="btn btn-secondary">Conocer más</a>
+        </div>
+
+      </div>
+
+      <div class="image-box saltadilla">
+        <img src="images/Saltadilla.png">
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Las Chicas Superpoderosas | Fan Website
+
+  </footer>
 
 </body>
 </html>
